@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+
     <script type="module" src="./js/app.js"></script>
     <link rel="stylesheet" href="./styles/main.css" />
     <title>ShowRoom</title>
@@ -13,29 +14,21 @@
       <a-assets>
         <a-asset-item id="car" src="./Assets/future_car.glb"></a-asset-item>
       </a-assets>
-
-      <a-video
-        id="background-video"
-        position="0 1.6 -4"
-        width="16"
-        height="9"
-        autoplay
-        muted
-        loop
-        playsinline
-      ></a-video>
+      <a-sky color="#FF5733"></a-sky>
+      <a-camera position="0 1.6 0"></a-camera>
       <a-entity
         id="carModel"
         gltf-model="#car"
         position="0 1 -3"
         scale="0.5 0.5 0.5"
-        rotation="0 45 0"
+        rotation="0 0 0"
       >
         <a-circle
-          position="0.5 1.5 -2.5"
+          position="1 1 1.2"
           radius="0.1"
-          color="#FF5733"
+          color="#46fff4"
           class="boton-explicativo"
+          id="pieza_1"
           event-set__enter="_event: mouseenter; scale: 1.2 1.2 1.2"
           event-set__leave="_event: mouseleave; scale: 1 1 1"
         >
@@ -47,49 +40,15 @@
             scale="1 1 1"
           ></a-text>
         </a-circle>
-
-        <!-- Botón explicativo 2 -->
-        <a-circle
-          position="-0.5 0.8 -2.2"
-          radius="0.1"
-          color="#33A1FF"
-          class="boton-explicativo"
-          event-set__enter="_event: mouseenter; scale: 1.2 1.2 1.2"
-          event-set__leave="_event: mouseleave; scale: 1 1 1"
-        >
-          <a-text
-            value="Pieza 2"
-            align="center"
-            position="0 0.2 0"
-            color="#FFFFFF"
-            scale="1 1 1"
-          ></a-text>
-        </a-circle>
-
-        <!-- Botón explicativo 3 -->
-        <a-circle
-          position="0 2 -2.8"
-          radius="0.1"
-          color="#28FFAB"
-          class="boton-explicativo"
-          event-set__enter="_event: mouseenter; scale: 1.2 1.2 1.2"
-          event-set__leave="_event: mouseleave; scale: 1 1 1"
-        >
-          <a-text
-            value="Pieza 3"
-            align="center"
-            position="0 0.2 0"
-            color="#FFFFFF"
-            scale="1 1 1"
-          ></a-text>
-        </a-circle>
       </a-entity>
-      <a-camera></a-camera>
     </a-scene>
     <div class="user-ui">
       <button class="ui-button" id="testButton">Rotate</button>
       <button class="ui-button" id="animateButton">Animate</button>
       <button class="ui-button" id="showHideButton">Motrar/ocultar</button>
+      <div class="explain">
+        <p>HI</p>
+      </div>
     </div>
   </body>
 </html>

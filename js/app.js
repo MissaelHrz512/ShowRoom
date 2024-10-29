@@ -2,6 +2,7 @@ const buttonTest = document.querySelector("#testButton");
 const carModel = document.querySelector("#carModel");
 const animateButton = document.querySelector("#animateButton");
 const showHideButton = document.querySelector("#showHideButton");
+const pieza_1 = document.querySelector("#pieza_1")
 const onLoadContentValidator = () => {
   return !buttonTest && !carModel;
 };
@@ -49,22 +50,9 @@ const init = () => {
   animateButton.addEventListener("click", animateModelRotation);
   buttonTest.addEventListener("click", rotateModel);
   showHideButton.addEventListener("click", toggleVisibility);
-
-  navigator.mediaDevices
-    .getUserMedia({ audio: false, video: true })
-    .then((stream) => {
-      const videoElement = document.createElement("video");
-      videoElement.srcObject = stream;
-      videoElement.autoplay = true;
-      videoElement.muted = true;
-      videoElement.playsInline = true;
-
-      const aVideo = document.querySelector("#background-video");
-      aVideo.setAttribute("src", videoElement);
-    })
-    .catch((error) => {
-      console.error("Error al acceder a la cámara:", error);
-    });
+  pieza_1.addEventListener("click", () => {
+    console.log("HI desde Pieza 1");
+});
 };
 
 document.addEventListener("DOMContentLoaded", init);
